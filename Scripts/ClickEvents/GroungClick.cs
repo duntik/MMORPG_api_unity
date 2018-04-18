@@ -14,8 +14,12 @@ public class GroungClick : MonoBehaviour {
 	// Update is called once per frame
 	public void NazhalCallBack (Vector3 pos) {
         var posToNavigate = gameUser.GetComponent<PositionNavigator>();
+        // Get Server Possition of moving
+        var serverPosToNavigate = gameUser.GetComponent<MovingToApi>();
         // Sending pos to PositionNavigator
         posToNavigate.PlayerNavigation(pos);
+        // Sending possition to NeedMove function 
+        serverPosToNavigate.NeedMove(pos);
 
     }
 }

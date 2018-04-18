@@ -28,7 +28,7 @@ public class ClickOnScreen : MonoBehaviour {
        // check if user click then ...
         if (Physics.Raycast (mapAray, out nazhal))
         {
-            Debug.Log(nazhal.collider.gameObject.name);
+            ////Debug.Log(nazhal.collider.gameObject.name);
             var GroundClick = nazhal.collider.gameObject.GetComponent<GroungClick>();
             // Give the point of interseption where user click 
             GroundClick.NazhalCallBack(nazhal.point);

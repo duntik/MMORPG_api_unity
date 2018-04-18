@@ -14,9 +14,16 @@ public class PositionNavigator : MonoBehaviour {
         //Find component of NavMeshAgent and set to player
         player = GetComponent<NavMeshAgent>();
 	}
-	
-	// Used to navigete gameobjects
-	public void PlayerNavigation(Vector3 pos) {
+
+    // Used for animation, update the OnDistance condition
+    void Update()
+    {
+        //Applaying distance to animation, Run --> Idle
+        GetComponent<Animator>().SetFloat("WhenRunDis", player.remainingDistance);
+    }
+
+    // Used to navigete gameobjects
+    public void PlayerNavigation(Vector3 pos) {
         // Move gameobject to possition
         player.SetDestination(pos);
 	}
