@@ -9,11 +9,24 @@ public class ApiConnection : MonoBehaviour {
     // Socket Refrence Created
     static SocketIOComponent socket;
 
+    // Creating public object "igrokPrefab"
+    public GameObject igrokPrefab;
 
-	void Start () {
+
+    void Start () {
         socket = GetComponent<SocketIOComponent>();
         socket.On("open", OnConnected);
+        // callback for zaspawnitj
+        socket.On("zaspawnitj", OnZaspawnitj);
+
 	}
+
+    private void OnZaspawnitj(SocketIOEvent obj)
+    {
+        Debug.Log("Zaspawnilosj!");
+        // Create the object 
+        Instantiate(igrokPrefab);
+    }
 
     private void OnConnected(SocketIOEvent obj)
     {
