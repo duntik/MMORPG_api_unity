@@ -24,7 +24,7 @@ public class ApiConnection : MonoBehaviour {
     private void OnZaspawnitj(SocketIOEvent obj)
     {
         Debug.Log("Zaspawnilosj!");
-        // Create the object 
+        // Create the object when user "zaspawnilosj"
         Instantiate(igrokPrefab);
     }
 
