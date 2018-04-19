@@ -17,6 +17,8 @@ io.on('connection', function(socket) {
   console.log('Spawn Player and Unity Connected');
   // give the random id
   var playerID = randomWords();
+  // save objects about player
+
   // push the playerID to array of users id's
   users.push(playerID);
   console.log('Player ID: ', playerID);

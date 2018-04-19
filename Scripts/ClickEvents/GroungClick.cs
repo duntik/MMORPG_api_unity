@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroungClick : MonoBehaviour {
+public class GroungClick : MonoBehaviour, ItemToClick{
 
     public GameObject gameUser;
 
@@ -12,14 +12,14 @@ public class GroungClick : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	public void NazhalCallBack (Vector3 pos) {
+	public void ClickToSomthing(RaycastHit nazhal) {
         var posToNavigate = gameUser.GetComponent<PositionNavigator>();
         // Get Server Possition of moving
         var serverPosToNavigate = gameUser.GetComponent<MovingToApi>();
         // Sending pos to PositionNavigator
-        posToNavigate.PlayerNavigation(pos);
+        posToNavigate.PlayerNavigation(nazhal.point);
         // Sending possition to NeedMove function 
-        serverPosToNavigate.NeedMove(pos);
+        serverPosToNavigate.NeedMove(nazhal.point);
 
     }
 }
