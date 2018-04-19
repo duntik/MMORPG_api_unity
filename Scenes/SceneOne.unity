@@ -266,6 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   igrokPrefab: {fileID: 1176823517605248, guid: f1602fb647580214a8c6670818d333de,
     type: 2}
+  LocalPlayer: {fileID: 815794304}
 --- !u!1 &815794304 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1176823517605248, guid: f1602fb647580214a8c6670818d333de,
@@ -315,6 +316,10 @@ Prefab:
       propertyPath: socket
       value: 
       objectReference: {fileID: 696582540}
+    - target: {fileID: 1176823517605248, guid: f1602fb647580214a8c6670818d333de, type: 2}
+      propertyPath: m_Name
+      value: LocalPlayer
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1602fb647580214a8c6670818d333de, type: 2}
   m_IsPrefabParent: 0
