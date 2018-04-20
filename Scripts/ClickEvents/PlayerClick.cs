@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerClick : MonoBehaviour, ItemToClick {
 
+    // Refrence to local player
+    public GameObject LocalPlayer;
+
     // Use this for initialization
     void Start () {
 		

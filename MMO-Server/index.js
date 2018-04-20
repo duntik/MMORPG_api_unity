@@ -18,10 +18,21 @@ io.on('connection', function(socket) {
   // give the random id
   var playerID = randomWords();
   // save objects about player
+  // Creating object players
+  var objectPlayer = {
+    id: playerID,
+    //position: {x: 0,y: 0}
+    x: 0,
+    y: 0
+  };
 
   // push the playerID to array of users id's
-  users.push(playerID);
-  console.log('Player ID: ', playerID);
+  //users.push(playerID);
+  //console.log('Player ID: ', playerID);
+
+  // Creating a key [with player ID] inside player and set it to player
+  users[playerID] = objectPlayer;
+  console.log('Player Object: ', playerID);
 
   // broadcasting "zaspawnitj" to all users
   socket.broadcast.emit('zaspawnitj', {
@@ -31,18 +42,26 @@ io.on('connection', function(socket) {
   socket.broadcast.emit('onlineposition');
   // add connected player
   //countPlayers++;
+  for (var userID in users) {
+    if (userID == playerID)
+      continue;
+    //connect new player
+    // {id: userID}
+    socket.emit('zaspawnitj', users[userID]);
+    console.log('new players know zaspawnitj id:', userID);
+  };
 
-  //
-  users.forEach(function(user) {
-    // to dont make new player, check if player connected, dont connect twice
-    if (user == playerID)
-      return;
-    // connect new player
-    socket.emit('zaspawnitj', {
-      id: user
-    });
-    console.log('new players know zaspawnitj id:', user);
-  });
+  // Find player in array
+  //users.forEach(function(user) {
+  // to dont make new player, check if player connected, dont connect twice
+  //  if (user == playerID)
+  //    return;
+  // connect new player
+  //  socket.emit('zaspawnitj', {
+  //    id: user
+  //  });
+  //  console.log('new players know zaspawnitj id:', user);
+  //});
 
   //for (i = 0; i < countPlayers; i++) {
   //  socket.emit('zaspawnitj');
@@ -53,7 +72,10 @@ io.on('connection', function(socket) {
   socket.on('disconnect', function() {
     console.log('player disconnect');
     // Remove the players with playerID from list
-    users.splice(users.indexOf(playerID), 1);
+    // No longer in array, so this wil not work
+    //users.splice(users.indexOf(playerID), 1);
+    delete users[playerID];
+
     //countPlayers--;
     //Seng the action to delete user from game and telling who this player are
     socket.broadcast.emit('deleteplayer', {
@@ -75,6 +97,12 @@ io.on('connection', function(socket) {
     dannie.id = playerID;
     // Turn data in JSON to string
     console.log('User dvizhenie', JSON.stringify(dannie));
+    // Refrence to a object players
+    //objectPlayer.position.x = dannie.x;
+    //objectPlayer.position.y = dannie.y;
+    objectPlayer.x = dannie.x;
+    objectPlayer.y = dannie.y;
+    //console.log(objectPlayer);
     // pass data from player to all players with possition
     socket.broadcast.emit('dvizenie', dannie);
   })

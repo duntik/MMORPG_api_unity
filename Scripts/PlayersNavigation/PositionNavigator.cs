@@ -9,7 +9,7 @@ public class PositionNavigator : MonoBehaviour {
     NavMeshAgent player;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         //Search gameobjects where this script attached
         //Find component of NavMeshAgent and set to player
         player = GetComponent<NavMeshAgent>();

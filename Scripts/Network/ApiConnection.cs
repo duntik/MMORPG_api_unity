@@ -11,13 +11,16 @@ public class ApiConnection : MonoBehaviour {
     static SocketIOComponent socket;
 
     // Creating public object "igrokPrefab"
-    public GameObject igrokPrefab;
+    //public GameObject igrokPrefab;
 
     // Creating object with local player
     public GameObject LocalPlayer;
 
     // Make the dictionary with users 
-    Dictionary<string, GameObject> users;
+    //Dictionary<string, GameObject> users;
+
+    // Refrence to Zaspawnitj
+    public Zaspawnitj zaspawnitjj;
 
 
     void Start () {
@@ -35,7 +38,7 @@ public class ApiConnection : MonoBehaviour {
         socket.On("newonlinepossition", OnNewOnlinePosition);
 
         // Instantiate the dictionary with users 
-        users = new Dictionary<string, GameObject>();
+        //users = new Dictionary<string, GameObject>();
 	}
 
     //
@@ -47,7 +50,8 @@ public class ApiConnection : MonoBehaviour {
         var pos = new Vector3(GetFloatFromJson(obj.data, "x"), 0, GetFloatFromJson(obj.data, "y"));
         //Debug.Log("possition: " + possition);
         // Refrence playerId with id from data
-        var playerID = users[obj.data["id"].ToString()];
+        //var playerID = users[obj.data["id"].ToString()];
+        var playerID = zaspawnitjj.WhereIsClient(obj.data["id"].ToString());
         // Refrence player and change possition from transform
         playerID.transform.position = pos;
 
@@ -67,10 +71,14 @@ public class ApiConnection : MonoBehaviour {
     {
         Debug.Log("deleted player: " + obj.data);
         //Set user = to user ID from users dictionary
-        var user = users[obj.data["id"].ToString()];
-        // Delete user from list and destroy player
-        Destroy(user);
-        users.Remove(obj.data["id"].ToString());
+        //var user = users[obj.data["id"].ToString()];
+        var id = obj.data["id"].ToString();
+        //var user = users[id];
+        //// Delete user from list and destroy player
+        //Destroy(user);
+        ////users.Remove(obj.data["id"].ToString());
+        //users.Remove(id);
+        zaspawnitjj.Delete(id);
     }
 
     // To move objects
@@ -84,10 +92,13 @@ public class ApiConnection : MonoBehaviour {
         // Putting x and y to vector 3 possition
         var pos = new Vector3(GetFloatFromJson(obj.data, "x"), 0, GetFloatFromJson(obj.data, "y"));
         //Debug.Log("possition: " + possition);
+
         // Refrence playerId with id from data
-        var playerID = obj.data["id"].ToString();
+        //var playerID = obj.data["id"].ToString();
+
         // use dictionary to refrence id with game object
-        var user = users[playerID];
+        //var user = users[playerID];
+        var user = zaspawnitjj.WhereIsClient(obj.data["id"].ToString());
         // Get refrence to navigate position to a user
         var positionNavigator = user.GetComponent<PositionNavigator>();
         // Navigate to possition witch we get
@@ -101,11 +112,23 @@ public class ApiConnection : MonoBehaviour {
     {
         Debug.Log("Zaspawnilosj!" + obj.data);
         // Create the object when user "zaspawnilosj"
-        var user = Instantiate(igrokPrefab);
-        // New element when new player connects
-        users.Add(obj.data["id"].ToString(), user);
-        // Determine that
-        Debug.Log("Count: " + users.Count);
+        //var user = Instantiate(igrokPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+        var user = zaspawnitjj.ZaspawnitjIgroka(obj.data["id"].ToString());
+        // check the player possition, when player spawned, dont need request the possition
+        if (obj.data["x"])
+        {
+            // Putting x and y to vector 3 possition
+            var posM = new Vector3(GetFloatFromJson(obj.data, "x"), 0, GetFloatFromJson(obj.data, "y"));
+            //Debug.Log("posM is:" + posM);
+            // Get refrence to navigate position to a user
+            var positionNavigator = user.GetComponent<PositionNavigator>();
+            // Navigate to possition witch we get
+            positionNavigator.PlayerNavigation(posM);
+            // New element when new player connects
+        }
+        //users.Add(obj.data["id"].ToString(), user);
+        //Determine that
+        //Debug.Log("Count: " + users.Count);
     }
 
     // when connected
