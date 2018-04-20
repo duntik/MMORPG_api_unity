@@ -300,6 +300,20 @@ GameObject:
   m_PrefabParentObject: {fileID: 1176823517605248, guid: f1602fb647580214a8c6670818d333de,
     type: 2}
   m_PrefabInternal: {fileID: 964783881}
+--- !u!114 &815794311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 815794304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b2eb6099c1d2f4c84c964fb9a15044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  celj: {fileID: 0}
+  nebegi: 2
+  chastotaScanitovanija: 0.3
 --- !u!1001 &849298157
 Prefab:
   m_ObjectHideFlags: 0
@@ -383,9 +397,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942c490cf9aa35643ab7fe6617241bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LocalPlayer: {fileID: 0}
+  LocalPlayer: {fileID: 815794304}
   igrokPrefab: {fileID: 1176823517605248, guid: f1602fb647580214a8c6670818d333de,
     type: 2}
+  socket: {fileID: 696582540}
 --- !u!4 &931596131
 Transform:
   m_ObjectHideFlags: 0

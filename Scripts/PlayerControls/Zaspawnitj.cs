@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocketIO;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,9 @@ public class Zaspawnitj : MonoBehaviour {
 
     // Creating public object "igrokPrefab"
     public GameObject igrokPrefab;
+
+    // Refrence to socket
+    public SocketIOComponent socket;
 
     // Make the dictionary with users 
     //Dictionary<string, GameObject> users;
@@ -26,10 +30,10 @@ public class Zaspawnitj : MonoBehaviour {
 		
 	}
 
-    public GameObject WhereIsClient(string clientid)
+    public GameObject WhereIsClient(string id)
     {
         // return users with Id as the key
-        return users[clientid];
+        return users[id];
     }
 
     //
@@ -39,8 +43,12 @@ public class Zaspawnitj : MonoBehaviour {
         var user = Instantiate(igrokPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 
         // Set refrence to localplayer
-        user.GetComponent<PlayerClick>().LocalPlayer = LocalPlayer;
-
+        //user.GetComponent<PlayerClick>().LocalPlayer = LocalPlayer;
+        user.GetComponent<PlayerClick>().sledovanijeLocalPlayer = LocalPlayer.GetComponent<Sledovanije>();
+        //
+        user.GetComponent<SledovatjToApi>().socket = socket;
+        // set the id in api id
+        user.GetComponent<ApiId>().clientID = clientid;
         // Add user to dictionary
         users.Add(clientid, user);
 

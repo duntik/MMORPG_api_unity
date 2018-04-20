@@ -207,6 +207,8 @@ GameObject:
   - component: {fileID: 114910131759536376}
   - component: {fileID: 136790390155385264}
   - component: {fileID: 114058774876717724}
+  - component: {fileID: 114375960923822882}
+  - component: {fileID: 114324387182930766}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2608,6 +2610,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2ef99f9ee029a4aa560af5efd36877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sledovanijeLocalPlayer: {fileID: 0}
+  apiid: {fileID: 0}
+--- !u!114 &114324387182930766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1176823517605248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d893eaa0d852394899ede4a2dbf5385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clientID: 
+--- !u!114 &114375960923822882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1176823517605248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c84c522f3aec75548ab3d95ab6fc6cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 0}
 --- !u!114 &114868288890378180
 MonoBehaviour:
   m_ObjectHideFlags: 1

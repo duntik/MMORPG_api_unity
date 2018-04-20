@@ -21,6 +21,7 @@ public class MovingToApi : MonoBehaviour {
     public void NeedMove(Vector3 pos)
     {
         Debug.Log("Position to server: " + ApiConnection.VectorToJson(pos));
+        // Sending move action to a server
         socket.Emit("dvizenie", new JSONObject(ApiConnection.VectorToJson(pos)));
     }
 }

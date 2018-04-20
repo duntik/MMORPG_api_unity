@@ -148,4 +148,9 @@ public class ApiConnection : MonoBehaviour {
         // Get the possition from json
         return float.Parse(data[key].ToString().Replace("\"", ""));
     }
+
+    public static string IdFormatter(string clientID)
+    {
+        return string.Format(@"{{""id"":""{0}""}}", clientID);
+    }
 }
