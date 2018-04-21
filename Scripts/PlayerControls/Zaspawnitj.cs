@@ -44,7 +44,7 @@ public class Zaspawnitj : MonoBehaviour {
 
         // Set refrence to localplayer
         //user.GetComponent<PlayerClick>().LocalPlayer = LocalPlayer;
-        user.GetComponent<PlayerClick>().sledovanijeLocalPlayer = LocalPlayer.GetComponent<Sledovanije>();
+        user.GetComponent<PlayerClick>().sledovanieLocalPlayer = LocalPlayer.GetComponent<Sledovanije>();
         //
         user.GetComponent<SledovatjToApi>().socket = socket;
         // set the id in api id

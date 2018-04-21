@@ -6,7 +6,7 @@ public class PlayerClick : MonoBehaviour, ItemToClick {
 
     // Refrence to local player
     //public GameObject LocalPlayer;
-    public Sledovanije sledovanijeLocalPlayer;
+    public Sledovanije sledovanieLocalPlayer;
     // reftence to apiid
     public ApiId apiid;
 
@@ -25,10 +25,10 @@ public class PlayerClick : MonoBehaviour, ItemToClick {
         Debug.Log("following" + nazhal.collider.gameObject.name);
 
         // Askin to move player on server
-        GetComponent<SledovatjToApi>().NeedMove(apiid.clientID);
+        GetComponent<SledovatjToApi>().NeedMoveSledovanie(apiid.clientID);
 
         // Tell local player to follow what it's clicked on
         //LocalPlayer.GetComponent<>();
-        sledovanijeLocalPlayer.celj = transform;
+        sledovanieLocalPlayer.celj = transform;
     }
 }

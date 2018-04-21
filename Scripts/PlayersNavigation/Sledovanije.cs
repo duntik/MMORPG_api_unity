@@ -18,28 +18,29 @@ public class Sledovanije : MonoBehaviour {
     float posledneeScanirovanie = 0;
 
     // Refrence to navigator class
-    PositionNavigator positionF;
+    PositionNavigator positionNav;
 
 	// Use this for initialization
 	void Start () {
         // set the refrence
-        positionF = GetComponent<PositionNavigator>();
+        positionNav = GetComponent<PositionNavigator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(Time.time - posledneeScanirovanie > chastotaScanitovanija && celj && isNotInRange())
+         if(Time.time - posledneeScanirovanie > chastotaScanitovanija && celj && !isInRange())
+        //if (Time.time - posledneeScanirovanie > chastotaScanitovanija && celj)
         {
             Debug.Log("scanbing nav path");
             // sending to navigate
-            positionF.PlayerNavigation(celj.position);
+            positionNav.PlayerNavigation(celj.position);
         }
 	}
 
-    private bool isNotInRange()
+    private bool isInRange()
     {
         // Getting the position of user witch follow
         var distance = Vector3.Distance(celj.position, transform.position);
-        return distance > nebegi;
+        return distance < nebegi;
     }
 }

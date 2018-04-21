@@ -20,7 +20,7 @@ public class SledovatjToApi : MonoBehaviour {
     }
 
     // Used to send the possition to server
-    public void NeedMove(string id)
+    public void NeedMoveSledovanie(string id)
     {
         Debug.Log("Users click on user with id to server: " + ApiConnection.IdFormatter(id));
         // Sending move action to a server

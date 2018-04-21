@@ -151,8 +151,8 @@ public class ApiConnection : MonoBehaviour {
         //var user = zaspawnitjj.ZaspawnitjIgroka(obj.data["id"].ToString());
         var user = zaspawnitjj.ZaspawnitjIgroka(obj.data["id"].str);
         // check the player possition, when player spawned, dont need request the possition
-        //if (obj.data["x"])
-        //{
+        if (obj.data["x"])
+        {
             // Putting x and y to vector 3 possition
             var posM = new Vector3(GetFloatFromJson(obj.data, "x"), 0, GetFloatFromJson(obj.data, "y"));
             //Debug.Log("posM is:" + posM);
@@ -161,7 +161,7 @@ public class ApiConnection : MonoBehaviour {
             // Navigate to possition witch we get
             positionNavigator.PlayerNavigation(posM);
             // New element when new player connects
-        //}
+        }
         //users.Add(obj.data["id"].ToString(), user);
         //Determine that
         //Debug.Log("Count: " + users.Count);
