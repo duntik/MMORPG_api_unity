@@ -20,10 +20,10 @@ public class SledovatjToApi : MonoBehaviour {
     }
 
     // Used to send the possition to server
-    public void NeedMove(string clientID)
+    public void NeedMove(string id)
     {
-        Debug.Log("Users click on user with id to server: " + ApiConnection.IdFormatter(clientID));
+        Debug.Log("Users click on user with id to server: " + ApiConnection.IdFormatter(id));
         // Sending move action to a server
-        socket.Emit("sledovanie", new JSONObject(ApiConnection.IdFormatter(clientID)));
+        socket.Emit("sledovanie", new JSONObject(ApiConnection.IdFormatter(id)));
     }
 }

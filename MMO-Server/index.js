@@ -34,6 +34,12 @@ io.on('connection', function(socket) {
   users[playerID] = objectPlayer;
   console.log('Player Object: ', playerID);
 
+  // adding locasl player to users list
+  socket.emit('ukazanie', {
+    id: playerID
+  });
+
+
   // broadcasting "zaspawnitj" to all users
   socket.broadcast.emit('zaspawnitj', {
     id: playerID
@@ -81,6 +87,14 @@ io.on('connection', function(socket) {
     socket.broadcast.emit('deleteplayer', {
       id: playerID
     });
+  })
+
+  socket.on('sledovanie', function(dannie) {
+    console.log("Sledovatj zapros", dannie);
+    // who is current player
+    dannie.id = playerID;
+    // let everyplayer know updated possition
+    socket.broadcast.emit('sledovanie', dannie);
   })
 
   socket.on('newonlinepossition', function(dannie) {

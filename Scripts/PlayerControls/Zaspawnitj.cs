@@ -37,7 +37,7 @@ public class Zaspawnitj : MonoBehaviour {
     }
 
     //
-    public GameObject ZaspawnitjIgroka(string clientid)
+    public GameObject ZaspawnitjIgroka(string clientID)
     {
         // Create the object when user "zaspawnilosj"
         var user = Instantiate(igrokPrefab, Vector3.zero, Quaternion.identity) as GameObject;
@@ -48,21 +48,30 @@ public class Zaspawnitj : MonoBehaviour {
         //
         user.GetComponent<SledovatjToApi>().socket = socket;
         // set the id in api id
-        user.GetComponent<ApiId>().clientID = clientid;
+        user.GetComponent<ApiId>().clientID = clientID;
+
         // Add user to dictionary
-        users.Add(clientid, user);
+        //users.Add(clientid, user);
+        DobavitjIgroka(clientID, user);
 
         // Return the user
         return user;
 
     }
 
-    internal void Delete(string id)
+    public void DobavitjIgroka(string clientID, GameObject user)
     {
-        var user = users[id];
+        // Add user to dictionary
+        users.Add(clientID, user);
+    }
+
+    internal void Delete(string clientID)
+    {
+        var user = users[clientID];
         // Delete user from list and destroy player
         Destroy(user);
         //users.Remove(obj.data["id"].ToString());
-        users.Remove(id);
+        users.Remove(clientID);
     }
+
 }
