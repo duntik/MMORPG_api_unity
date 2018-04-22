@@ -6,13 +6,4 @@ public class ApiId : MonoBehaviour {
 
     public string clientID;
 
-    // Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

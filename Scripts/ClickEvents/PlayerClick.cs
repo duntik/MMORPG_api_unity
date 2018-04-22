@@ -27,6 +27,8 @@ public class PlayerClick : MonoBehaviour, ItemToClick {
         // Askin to move player on server
         GetComponent<SledovatjToApi>().NeedMoveSledovanie(apiid.clientID);
 
+        //ApiConnection.Follow(apiid.clientID);
+
         // Tell local player to follow what it's clicked on
         //LocalPlayer.GetComponent<>();
         sledovanieLocalPlayer.celj = transform;

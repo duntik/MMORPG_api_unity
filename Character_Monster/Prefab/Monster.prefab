@@ -97,6 +97,8 @@ GameObject:
   - component: {fileID: 95000013290184230}
   - component: {fileID: 114340139532636602}
   - component: {fileID: 195928770952537586}
+  - component: {fileID: 114110412642176114}
+  - component: {fileID: 114397368415672546}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -2594,6 +2596,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114110412642176114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010402951368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c84c522f3aec75548ab3d95ab6fc6cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 0}
 --- !u!114 &114340139532636602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2605,6 +2619,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c892ecefe377a9646acf804f69dc31f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114397368415672546
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010402951368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b2eb6099c1d2f4c84c964fb9a15044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  celj: {fileID: 0}
+  nebegi: 2
+  chastotaScanitovanija: 0.3
 --- !u!137 &137000011916107370
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

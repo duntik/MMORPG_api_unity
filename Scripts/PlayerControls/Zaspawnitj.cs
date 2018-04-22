@@ -30,10 +30,10 @@ public class Zaspawnitj : MonoBehaviour {
 		
 	}
 
-    public GameObject WhereIsClient(string id)
+    public GameObject WhereIsClient(string clientID)
     {
         // return users with Id as the key
-        return users[id];
+        return users[clientID];
     }
 
     //

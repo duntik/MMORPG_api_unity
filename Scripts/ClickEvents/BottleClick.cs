@@ -5,18 +5,24 @@ using UnityEngine;
 public class BottleClick : MonoBehaviour, ItemToClick
 {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public GameObject gameUser;
 
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
     public void ClickToSomthing(RaycastHit nazhal)
     {
-        Debug.Log("Get bottle" + nazhal.collider.gameObject.name);
+        var posToNavigate = gameUser.GetComponent<PositionNavigator>();
+        // Get Server Possition of moving
+        var serverPosToNavigate = gameUser.GetComponent<MovingToApi>();
+        // Sending pos to PositionNavigator
+        posToNavigate.PlayerNavigation(nazhal.point);
+        // Sending possition to NeedMove function 
+        serverPosToNavigate.NeedMove(nazhal.point);
+
     }
 }

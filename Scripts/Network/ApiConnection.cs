@@ -65,12 +65,16 @@ public class ApiConnection : MonoBehaviour {
         //var user = zaspawnitjj.WhereIsClient(obj.data["id"].str);
         // get the clelj
         //var celj = zaspawnitjj.WhereIsClient(obj.data["clientID"].ToString());
-        var celjj = zaspawnitjj.WhereIsClient(obj.data["clientID"].str);
+        var celj = zaspawnitjj.WhereIsClient(obj.data["clientID"].str).transform;
         // get the refrence to sledovanie
-        var sledovaniee = user.GetComponent<Sledovanije>();
+        var sledovanie = user.GetComponent<Sledovanije>();
         // set the celj na sledovanie
-        sledovaniee.celj = celjj.transform;
-
+        Debug.Log("AAAAAAAAA" + obj.data["id"].str);
+        Debug.Log("BBBBBBBBB" + obj.data["clientID"].str);
+        Debug.Log("CCCCCCCCC" + user);
+        Debug.Log("DDDDDDDDD" + celj);
+        Debug.Log("DDDDDDDDD" + celj.transform);
+        sledovanie.celj = celj;
     }
 
     //
