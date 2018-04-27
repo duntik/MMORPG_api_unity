@@ -37,9 +37,7 @@
   <a href="#gameplay">Gameplay</a> •
 </p>
 
-<p align="center">
 ![screenshot](https://github.com/duntik/MMORPG_api_unity/blob/master/MMO-Server/img/ezgif.gif)
-</p>
 
 ## The game plot
 
