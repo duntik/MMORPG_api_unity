@@ -31,14 +31,14 @@
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#download">Download</a> •
+  <a href="#how-to-use">Uncomplete Features</a> •
+  <a href="#download">Play</a> •
   <a href="#credits">Credits</a> •
   <a href="#related">Related</a> •
   <a href="#license">License</a>
 </p>
 
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/img/markdownify.gif)
+![screenshot](https://github.com/duntik/MMORPG_api_unity/blob/master/MMO-Server/img/ezgif.gif)
 
 ## Key Features
 
