@@ -30,32 +30,65 @@
 </p>
 
 <p align="center">
+  <a href="#the-game-plot">The game plot</a> •
   <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">Uncomplete Features</a> •
-  <a href="#download">Play</a> •
+  <a href="#uncomplete-features">Uncomplete Features</a> •
   <a href="#credits">Credits</a> •
-  <a href="#related">Related</a> •
-  <a href="#license">License</a>
+  <a href="#gameplay">Gameplay</a> •
 </p>
 
+<p align="center">
 ![screenshot](https://github.com/duntik/MMORPG_api_unity/blob/master/MMO-Server/img/ezgif.gif)
+</p>
+
+## The game plot
+
+* You are a monster living on the planet nebiru, on your planet strength and power are valued. To prove your power, you can go to a special room, where to achieve money and fame, you need to defeat all your enemies with your bare hands.
 
 ## Key Features
 
-* LivePreview - Make changes, See changes
-  - Instantly see what your Markdown documents look like in HTML as you create them.
-* Sync Scrolling
-  - While you type, LivePreview will automatically scroll to the current location you're editing.
-* GitHub Flavored Markdown  
-* Syntax highlighting
-* [KaTeX](https://khan.github.io/KaTeX/) Support
-* Dark/Light mode
-* Toolbar for basic Markdown formatting
-* Supports multiple cursors
-* Save the Markdown preview as PDF
-* Emoji support in preview :tada:
-* App will keep alive in tray for quick usage
-* Full screen mode
-  - Write distraction free.
-* Cross platform
-  - Windows, Mac and Linux ready.
+* MMORPG online game
+  - Any number of players can join while the server is able to withstand them
+* Sync Functionality :tada:
+  - All the functionality of the game is supported to all players. Full synchronization of all actions.
+* Chat System :speech_balloon:
+* Attacking suppot :angel:
+* Die/Respawn Support :space_invader:
+* Heath and Expiriance Support :heart:
+* Server side work like API
+  - Server side based on nodejs and all broadcasting with Socket.IO
+* 3D models
+* Camera follow the player
+* Game menu with options 
+* Have the sounds builded in game :loudspeaker:
+
+## Uncomplete Features
+
+* Sequrity
+  - Now the server is easy to hack, the server protection system has to be improved
+* Level system now give only extra health and just respawn player who died.
+* ID gived automatecly on serverside, better if user chose the ID. Used NodeJs module called <a href="https://github.com/punkave/random-words" target="_blank">random-words</a>
+
+## Credits
+
+* NodeJs
+* Socket.IO
+* Unity
+* random-words
+  - Tom Boutell
+* Monster
+  - Sulum Night
+* Music
+  - Divinity Original Sin 2
+* Socket.IO for unity
+  - Fabio Panettieri
+* Animations
+  - Explosive
+* Text
+  - TextMesh Pro
+* Sky
+  - ProAssets
+
+## Gameplay
+
+Can be found on URL
