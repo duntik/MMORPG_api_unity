@@ -40,6 +40,8 @@ public class ApiConnection : MonoBehaviour {
         socket.On("onlineposition", OnOnlinePosition);
         // callback for action on client side
         socket.On("newonlinepossition", OnNewOnlinePosition);
+        // callback for attacks
+        socket.On("atakuet", OnAtakuet);
 
         // Instantiate the dictionary with users 
         //users = new Dictionary<string, GameObject>();
@@ -53,7 +55,6 @@ public class ApiConnection : MonoBehaviour {
         //zaspawnitjj.DobavitjIgroka(obj.data["id"].ToString(), LocalPlayer);
         zaspawnitjj.DobavitjIgroka(obj.data["id"].str, LocalPlayer);
     }
-
     //
     private void OnSledovanie(SocketIOEvent obj)
     {
@@ -144,6 +145,17 @@ public class ApiConnection : MonoBehaviour {
         positionNavigator.PlayerNavigation(pos);
         //Debug.Log(playerID);
     }
+
+        private void OnAtakuet(SocketIOEvent obj)
+    {
+        Debug.Log("Attack Player: " + obj.data);
+        // call the function to register player
+        // passing id and refrence to local player
+        //zaspawnitjj.DobavitjIgroka(obj.data["id"].ToString(), LocalPlayer);
+        ClickPlayer.player.atakuet.helth -10;
+        attajuet.(obj.data["id"].str, LocalPlayer);
+    }
+
 
     // To generete object at start
 
